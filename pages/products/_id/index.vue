@@ -48,11 +48,10 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-
     </v-dialog>
 
      <div>
-                <v-btn v-if="userId === productId"
+                <v-btn v-if="auth"
                   @click.prevent="deleteProduct(productId)" class="ma-2" color="orange darken-2" dark>
           Delete
           </v-btn>
@@ -82,6 +81,11 @@ export default {
      }
    })
    .catch(e => context.error(e))
+  },
+  computed: {
+  auth () {
+    return this.$store.getters.isAuthenticated
+   }
   },
   methods: {
     deleteProduct () {
