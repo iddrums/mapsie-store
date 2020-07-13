@@ -3,12 +3,10 @@
      <ProductPreview
        v-for="product in products"
        :key="product.id"
-       :id="product.id"
        :is-admin="isAdmin"
-       :thumbnail="product.thumbnail"
-       :title="product.title"
-       :previewText="product.previewText"
+       :product="product"
        />
+
      </section>
 </template>
 
@@ -24,11 +22,16 @@ export default {
     type: Boolean,
     default: false
     },
-    products: {
-      type: Array,
-      required: true
+  },
+  data() {
+    return {
+      products: []
     }
-  }
+  },
+  mounted() {
+    console.log(this.$store.getters.loadedProducts)
+    this.products = this.$store.getters.loadedProducts
+  },
 }
 </script>
 

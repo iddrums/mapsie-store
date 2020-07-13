@@ -1,13 +1,13 @@
 <template>
-<v-footer class="footer">
+  <div>
     <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
-  <v-footer class="zeal">
-    <v-card
-      class="flex"
-      flat
-      tile
-      color="primary" dark
-    >
+      <v-footer class="lead">
+       <v-card
+          class="flex"
+          flat
+          tile
+          color="primary" dark
+        >
 
       <v-card-text class="py-2 white--text text-center">
         {{ new Date().getFullYear() }} —
@@ -26,7 +26,7 @@
       </v-card-text>
     </v-card>
   </v-footer>
-</v-footer>
+</div>
 </template>
 
 <script>
@@ -54,26 +54,13 @@ export default {
 </script>
 
 <style scoped>
- .zeal {
+.lead {
+  width: 100%;
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0 0px;
-
-}
-
-.footer {
-  width: 100%;
-  position: fixed;
-  /* height: 10%; */
   display: flex;
+  padding: 0 0px;
   justify-content: space-around;
-  /* align-items: center; */
-  /* background-color: blue; */
   z-index: 100;
-  /* box-sizing: border-box; */
-  /* padding: 20px; */
   bottom: 0;
-
 }
 </style>

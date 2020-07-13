@@ -32,6 +32,11 @@ export default {
   margin: 20px auto;
 }
 
+.admin-new-product-page {
+  padding-bottom: 100px;
+
+}
+
 @media (min-width: 768px) {
   .new-product-form {
     width: 500px;

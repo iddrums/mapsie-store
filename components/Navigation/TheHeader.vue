@@ -8,12 +8,11 @@
       <div class="spacer"></div>
       <div class="navigation-items">
         <ul class="nav-list">
-          <li class="nav-item"><nuxt-link to="/admin">Signup/Login</nuxt-link></li>
-          <!-- <li class="nav-item"><nuxt-link to="/login">Login</nuxt-link></li> -->
+          <li class="nav-item"><nuxt-link v-if="!auth" to="/admin">Login</nuxt-link></li>
           <li class="nav-item"><nuxt-link to="/products">Products</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
+          <li class="nav-item"><nuxt-link v-if="!auth" to="/about">About</nuxt-link></li>
           <li class="nav-item"><nuxt-link to="/cart">Cart</nuxt-link></li>
-          <!-- <li class="nav-item"><nuxt-link to="/logout">Logout</nuxt-link></li> -->
+          <li class="nav-item"><nuxt-link v-if="auth" to="/admin/auth">Logout</nuxt-link></li>
         </ul>
       </div>
     </header>
@@ -27,7 +26,12 @@ export default {
   name: "TheHeader",
   components: {
     TheSideNavToggle
-  }
+  },
+  computed: {
+  auth () {
+    return this.$store.getters.isAuthenticated
+   }
+  },
 };
 </script>
 
@@ -49,16 +53,6 @@ export default {
   box-sizing: border-box;
   padding: 20px;
 }
-
-/* .logo {
-  margin: 0 10px;
-  font-size: 1.3rem;
-}
-
-.logo a {
-  text-decoration: none;
-  color: white;
-} */
 
 .spacer {
   flex: 1;
@@ -89,6 +83,8 @@ export default {
 .v-toolbar__title a,
 nav a {
   color: white;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .nav-item a {

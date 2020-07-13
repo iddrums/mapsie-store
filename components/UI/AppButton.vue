@@ -22,22 +22,22 @@ export default {
 <style scoped>
 .button {
   font: inherit;
-  background-color: black;
+  background-color: blue;
   color: white;
   padding: 5px;
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid blue;
 }
 
 .button:hover,
 .button:active {
-  background-color: rgb(51, 51, 51);
-  border: 1px solid black;
+  background-color: blue;
+  border: 1px solid blue;
 }
 
 .inverted {
   background-color: white;
-  color: black;
+  color: blue;
   border: 1px solid transparent;
 }
 
@@ -49,14 +49,14 @@ export default {
 }
 
 .cancel {
-  background-color: red;
+  background-color: blue;
   color: white;
   border: 1px solid transparent;
 }
 
 .cancel:hover,
 .cancel:active {
-  background-color: salmon;
+  background-color: blue;
   border: 1px solid transparent;
   color: white;
 }

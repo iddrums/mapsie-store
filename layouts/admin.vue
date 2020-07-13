@@ -63,6 +63,7 @@ export default {
 <style scoped>
   .container {
     margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 0 !important;
   }
 

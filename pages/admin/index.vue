@@ -31,6 +31,8 @@ export default {
 <style scoped>
 .admin-page {
   padding: 20px;
+  padding-bottom: 100px;
+
 }
 
 .new-product {

@@ -5,11 +5,13 @@
       v-if="controlType === 'input'"
       v-bind="$attrs"
       :value="value"
+      required
       @input="$emit('input', $event.target.value)">
     <textarea
       v-if="controlType === 'textarea'"
       rows="10"
       :value="value"
+      required
       @input="$emit('input', $event.target.value)"></textarea>
   </div>
 </template>

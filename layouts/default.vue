@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       v-model="drawer"
       absolute temporary
     >
@@ -25,15 +25,13 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <v-main>
       <v-container>
-         <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
-         <TheFooter @sidenavToggle="displaySidenav = !displaySidenav" />
-    <TheSidenav
-     :show="displaySidenav"
-       @close="displaySidenav = false" />
+        <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
+        <TheFooter @sidenavToggle="displaySidenav = !displaySidenav" />
+        <TheSidenav :show="displaySidenav" @close="displaySidenav = false" />
         <nuxt />
       </v-container>
     </v-main>
@@ -41,9 +39,9 @@
 </template>
 
 <script>
-import TheHeader from '@/components/Navigation/TheHeader'
-import TheSidenav from '@/components/Navigation/TheSidenav'
-import TheFooter from '@/components/Navigation/TheFooter'
+import TheHeader from "@/components/Navigation/TheHeader";
+import TheSidenav from "@/components/Navigation/TheSidenav";
+import TheFooter from "@/components/Navigation/TheFooter";
 
 export default {
   // middleware: 'log',
@@ -52,26 +50,38 @@ export default {
     TheSidenav,
     TheFooter
   },
-  data () {
+  data() {
     return {
       items: 0,
       drawer: null,
       displaySidenav: false
-    }
+    };
   }
-}
+};
 </script>
 <style scoped>
-  .container {
-    margin-left: 0 !important;
-    padding: 0 !important;
-  }
-
-  html {
-    font-family: 'Open Sans', sans-serif;
+.container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
 }
 
- body {
-   margin: 0;
- }
+@media (min-width: 960px) {
+.container {
+    max-width: 100%;
+    margin-bottom: 100px;
+}
+}
+
+.bar {
+  margin-bottom: 2px;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+}
 </style>

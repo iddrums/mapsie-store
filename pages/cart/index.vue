@@ -1,9 +1,9 @@
 <template>
-  <div v-if="$store.state.cartProducts.length > 0" class="word">
-    <div class="text-center pt-2">
-      <h1>Welcome To Our Cart Page!!!</h1>
-    </div>
-    <div>
+ <div v-if="$store.state.cartProducts.length > 0" class="word">
+     <div class="text-center pt-2">
+      <h1>Welcome to our cart page!!!</h1>
+     </div>
+     <div>
       <v-card>
         <v-simple-table>
           <thead>
@@ -24,10 +24,10 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
+        <tbody>
             <tr v-for="product in $store.state.cartProducts" :key="product.id">
               <td>
-                <img :src="product.image" height="200px" width="200px" />
+                <img :src="product.thumbnail" height="200px" width="200px" />
               </td>
               <td>
                 <strong>{{ product.title }}</strong>
@@ -43,7 +43,7 @@
               </td>
               <div class="view">
                 <v-btn
-                  @click="toCart(product)"
+                  @click="addCart(product)"
                   style="margin-top: 20px; width: 10px;"
                   color="#FFD180"
                 >+</v-btn>
@@ -77,6 +77,7 @@
     </div>
 </template>
 
+
 <script>
 export default {
   data () {
@@ -96,8 +97,8 @@ export default {
     removeFromCart (product) {
       this.$store.dispatch('removeFromCart', product)
     },
-    toCart (product) {
-      this.$store.dispatch('toCart', product)
+    addCart (product) {
+      this.$store.dispatch('addCart', product)
     },
     decreaseQuantity (product) {
       this.$store.dispatch('decreaseQuantity', product)

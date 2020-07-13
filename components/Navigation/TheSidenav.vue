@@ -11,11 +11,11 @@
       <ul
         class="nav-list"
         @click="$emit('close')">
-         <li class="nav-item"><nuxt-link to="/admin">Signup/Login</nuxt-link></li>
-        <!-- <li class="nav-item"><nuxt-link to="/login">Login</nuxt-link></li> -->
+         <li class="nav-item"><nuxt-link v-if="!auth" to="/admin">Login</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/products">Products</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
+        <li class="nav-item"><nuxt-link v-if="!auth" to="/about">About</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/cart">Cart</nuxt-link></li>
+        <li class="nav-item"><nuxt-link v-if="auth" to="/admin/auth">Logout</nuxt-link></li>
       </ul>
     </div>
   </transition>
@@ -30,6 +30,11 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+  auth () {
+    return this.$store.getters.isAuthenticated
+   }
   }
 };
 </script>
@@ -49,7 +54,9 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+
 }
+
 
 .sidenav {
   height: 100%;
@@ -84,7 +91,7 @@ export default {
 
 .nav-item a {
   text-decoration: none;
-  color: black;
+  color: blue;
   font-size: 1.5rem;
 }
 

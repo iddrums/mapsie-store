@@ -14,8 +14,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 50%;
+  height: 80%;
   width: 35px;
+  margin-bottom: 2px;
   cursor: pointer;
 }
 

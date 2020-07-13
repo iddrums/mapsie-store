@@ -53,16 +53,16 @@ export default {
        return {
          items: [
            {
-          src: '~assets/images/lap.jpg'
+             src: require("@/assets/images/lap.jpg")
         },
         {
-          src: '~assets/images/lap2.jpg'
+            src: require("@/assets/images/lap1.jpg")
         },
         {
-          src: '~assets/images/lap1.jpg'
+          src: require("@/assets/images/lap2.jpg")
         },
         {
-          src: '~assets/images/lap3.jpg'
+          src: require("@/assets/images/lap3.jpg")
         },
         ]
        }

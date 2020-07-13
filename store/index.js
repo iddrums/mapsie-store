@@ -5,7 +5,13 @@ const createStore = () => {
     return new Vuex.Store({
         state: {
             loadedProducts: [],
-            token: null
+            token: null,
+            userId: null,
+            products: [],
+            product: {},
+            cartProducts: [],
+            cartCount: 0,
+            cartTotal: 0
         },
         mutations: {
             setProducts(state, products) {
@@ -25,6 +31,7 @@ const createStore = () => {
             },
             clearToken(state) {
                 state.token = null;
+                state.userId = null;
             }
         },
         actions: {
@@ -60,6 +67,19 @@ const createStore = () => {
                     })
                     .catch(e => console.log(e))
             },
+            deleteProduct({ commit, state }, productId) {
+                return this.$axios.$delete(`products/${productId}.json?auth=${state.token}`)
+                    .then(res => {
+                        alert('product deleted, id' + productId)
+                        const products = state.loadedProducts.filter(product => {
+                            return product.id !== productId
+                        })
+                        console.log('pro', products)
+                        commit('setProducts', products)
+                        this.$router.push('/products');
+                    })
+                    .catch(error => console.log(error))
+            },
             setProducts(vuexContext, products) {
                 vuexContext.commit('setProducts', products);
             },
@@ -84,6 +104,7 @@ const createStore = () => {
 
                         Cookie.set('jwt', result.idToken);
                         Cookie.set('expirationDate', new Date().getTime() + Number.parseInt(result.expiresIn) * 1000);
+                        return this.$axios.$post('http://localhost:3000/api/track-data', { data: 'Authenticated!' })
                     })
                     .catch(e => console.log(e));
             },
@@ -124,7 +145,43 @@ const createStore = () => {
                     localStorage.removeItem('token');
                     localStorage.removeItem('tokenExpiration');
                 }
-            }
+            },
+            addCart({ commit, state }, product) {
+                const found = state.cartProducts.find(
+                    (item) => item.id === product.id
+                )
+
+                if (found) {
+                    found.quantity++
+                        state.cartTotal += parseInt(product.price)
+                } else {
+                    product.quantity = 1
+                    state.cartProducts.push(product)
+                    state.cartTotal += parseInt(product.price)
+                    state.cartCount++
+                }
+            },
+            removeFromCart({ commit, state }, product) {
+                const index = state.cartProducts.indexOf(product)
+
+                if (index > -1) {
+                    const item = state.cartProducts[index]
+                    state.cartCount -= item.quantity
+                    state.cartTotal -= product.quantity * product.price
+
+                    state.cartProducts.splice(index, 1)
+                }
+            },
+            decreaseQuantity({ commit, state }, product) {
+                const addedproduct = state.cartProducts.find(
+                    (item) => item.id === product.id
+                )
+
+                if (addedproduct) {
+                    addedproduct.quantity--
+                        state.cartTotal -= parseInt(addedproduct.price)
+                }
+            },
         },
         getters: {
             loadedProducts(state) {
@@ -132,6 +189,9 @@ const createStore = () => {
             },
             isAuthenticated(state) {
                 return state.token != null
+            },
+            cartProducts(state) {
+                return state.cartProducts
             }
         }
     });
