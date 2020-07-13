@@ -43,6 +43,10 @@ export default {
   margin: 20px auto;
 }
 
+.admin-product-page {
+  padding-bottom: 100px;
+}
+
 @media (min-width: 768px) {
   .update-form {
     width: 500px;
