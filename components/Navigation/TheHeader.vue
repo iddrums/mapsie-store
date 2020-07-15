@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <header class="the-header" color="primary" dark>
+    <header class="the-header">
       <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
       <v-toolbar-title>
         <nuxt-link to="/">Mapsie Store</nuxt-link>
