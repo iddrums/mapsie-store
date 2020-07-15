@@ -1,4 +1,5 @@
 <template>
+<div class="give">
    <v-container fluid d-flex justify-center>
     <v-row justify-center class="d-flex">
       <v-col style="margin: 0 auto;" cols="12" sm="8" md="6">
@@ -24,6 +25,7 @@
       </v-col>
     </v-row>
    </v-container>
+</div>
 </template>
 
 <script>
@@ -59,4 +61,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.give {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-right: 30px;
+  padding-left: 20px;
+}
+</style>
 
