@@ -44,6 +44,7 @@ export default {
 .sidenav-container {
   height: 100%;
   width: 100%;
+
 }
 
 .sidenav-backdrop {

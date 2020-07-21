@@ -52,8 +52,8 @@ export default {
   },
   data() {
     return {
-      items: 0,
-      drawer: null,
+      // items: 0,
+      // drawer: null,
       displaySidenav: false
     };
   }
