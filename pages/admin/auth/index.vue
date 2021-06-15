@@ -8,20 +8,20 @@
              <v-toolbar-title>Login Form</v-toolbar-title>
         </v-toolbar>
          <form @submit.prevent="onSubmit">
-          <AppControlInput type="email" v-model="email"
-             name="email"
-              label="Email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password" v-model="password"
-              name="password"
-              label="Password">Password</AppControlInput>
+             <AppControlInput type="email" v-model="email"
+                name="email"
+                label="Email">E-Mail Address</AppControlInput>
+             <AppControlInput type="password" v-model="password"
+                name="password"
+                label="Password">Password</AppControlInput>
         <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
         <AppButton
-          type="button"
-          btn-style="inverted"
-          style="margin-left: 10px"
-          @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
-      </form>
-    </v-card>
+            type="button"
+            btn-style="inverted"
+            style="margin-left: 10px"
+            @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
+          </form>
+        </v-card>
       </v-col>
     </v-row>
    </v-container>

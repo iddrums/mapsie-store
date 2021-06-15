@@ -1,20 +1,20 @@
 <template>
   <div class="header-container">
     <header class="the-header">
-      <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
+         <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
       <v-toolbar-title>
-        <nuxt-link to="/">Mapsie Store</nuxt-link>
+         <nuxt-link to="/">Mapsie Store</nuxt-link>
       </v-toolbar-title>
       <div class="spacer"></div>
-      <div class="navigation-items">
-        <ul class="nav-list">
-          <li class="nav-item"><nuxt-link v-if="!auth" to="/admin">Login</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/products">Products</nuxt-link></li>
-          <li class="nav-item"><nuxt-link v-if="!auth" to="/about">About</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/cart">Cart</nuxt-link></li>
-          <li class="nav-item"><nuxt-link v-if="auth" to="/admin/auth">Logout</nuxt-link></li>
-        </ul>
-      </div>
+        <div class="navigation-items">
+          <ul class="nav-list">
+            <li class="nav-item"><nuxt-link v-if="!auth" to="/admin">Login</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to="/products">Products</nuxt-link></li>
+            <li class="nav-item"><nuxt-link v-if="!auth" to="/about">About</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to="/cart">Cart</nuxt-link></li>
+            <li class="nav-item"><nuxt-link v-if="auth" to="/admin/auth">Logout</nuxt-link></li>
+          </ul>
+        </div>
     </header>
   </div>
 </template>
@@ -23,22 +23,22 @@
 import TheSideNavToggle from "@/components/Navigation/TheSideNavToggle";
 
 export default {
-  name: "TheHeader",
-  components: {
-    TheSideNavToggle
-  },
-  computed: {
-  auth () {
-    return this.$store.getters.isAuthenticated
-   }
+    name: "TheHeader",
+    components: {
+      TheSideNavToggle
+    },
+    computed: {
+    auth () {
+      return this.$store.getters.isAuthenticated
+    }
   },
 };
 </script>
 
 
 <style scoped>
-.header-container {
-  height: 60px;
+  .header-container {
+    height: 60px;
 }
 
 .the-header {

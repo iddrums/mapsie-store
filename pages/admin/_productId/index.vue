@@ -1,7 +1,7 @@
 <template>
    <div class="admin-product-page">
      <section class="update-form">
-    <AdminProductForm :product="loadedProduct" @submit="onSubmitted" />
+        <AdminProductForm :product="loadedProduct" @submit="onSubmitted" />
      </section>
    </div>
 </template>

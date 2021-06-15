@@ -31,9 +31,9 @@
       <v-container>
          <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
          <TheFooter @sidenavToggle="displaySidenav = !displaySidenav" />
-    <TheSidenav
-     :show="displaySidenav"
-       @close="displaySidenav = false" />
+        <TheSidenav
+        :show="displaySidenav"
+          @close="displaySidenav = false" />
         <nuxt />
       </v-container>
     </v-main>

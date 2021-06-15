@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 const bodyParser = require('body-parser')
 
-export default {
+module.exports = {
     /*
      ** Nuxt rendering mode
      ** See https://nuxtjs.org/api/configuration-mode

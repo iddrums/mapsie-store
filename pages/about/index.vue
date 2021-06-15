@@ -54,19 +54,19 @@ export default {
          items: [
            {
              src: require("@/assets/images/lap.jpg")
-        },
-        {
-            src: require("@/assets/images/lap1.jpg")
-        },
-        {
-          src: require("@/assets/images/lap2.jpg")
-        },
-        {
-          src: require("@/assets/images/lap3.jpg")
-        },
-        ]
+             },
+             {
+                src: require("@/assets/images/lap1.jpg")
+            },
+            {
+              src: require("@/assets/images/lap2.jpg")
+            },
+            {
+              src: require("@/assets/images/lap3.jpg")
+            },
+         ]
        }
-     }
+    }
 }
 </script>
 

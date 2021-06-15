@@ -12,7 +12,8 @@
       rows="10"
       :value="value"
       required
-      @input="$emit('input', $event.target.value)"></textarea>
+      @input="$emit('input', $event.target.value)">
+    </textarea>
   </div>
 </template>
 

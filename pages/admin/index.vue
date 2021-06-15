@@ -1,23 +1,23 @@
 <template>
   <div class="admin-page">
     <section class="new-product">
-    <AppButton @click="$router.push('/admin/new-product')">Create New Product</AppButton>
-    <AppButton style="margin-left: 10px" @click="onLogout">Logout</AppButton>
+        <AppButton @click="$router.push('/admin/new-product')">Create New Product</AppButton>
+        <AppButton style="margin-left: 10px" @click="onLogout">Logout</AppButton>
     </section>
     <section class="existing-products">
       <h1>Existing Products</h1>
-      <ProductList isAdmin  :products="loadedProducts" />
+        <ProductList isAdmin  :products="loadedProducts" />
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  middleware: ['check-auth', 'auth'],
- computed: {
-   loadedProducts() {
-     return this.$store.getters.loadedProducts
-   }
+    middleware: ['check-auth', 'auth'],
+    computed: {
+    loadedProducts() {
+      return this.$store.getters.loadedProducts
+    }
  },
  methods: {
    onLogout() {

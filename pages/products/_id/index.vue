@@ -1,34 +1,32 @@
 <template>
   <div class="single-product-page">
-  <section class="product">
-    <h1 class="product-title">{{ loadedProduct.title }}</h1>
-    <div class="product-details">
-      <div class="product-detail">Last updated on {{ loadedProduct.updatedDate | date }}</div>
-      <div class="product-detail">Written by {{ loadedProduct.author }}</div>
+    <section class="product">
+     <h1 class="product-title">{{ loadedProduct.title }}</h1>
+        <div class="product-details">
+        <div class="product-detail">Last updated on {{ loadedProduct.updatedDate | date }}</div>
+        <div class="product-detail">Written by {{ loadedProduct.author }}</div>
     </div>
     <p class="product-content">{{ loadedProduct.content }}</p>
     <div
-          class="product-thumbnail"
-          :style="{backgroundImage: 'url(' + loadedProduct.thumbnail + ')'}"></div>
-         <div class="product-content"></div>
+        class="product-thumbnail"
+        :style="{backgroundImage: 'url(' + loadedProduct.thumbnail + ')'}"></div>
+        <div class="product-content"></div>
     <p class="product-price">₦{{ loadedProduct.price }}</p>
   </section>
   <section class="product-feedback">
     <p>
-         We design experiences for inspiring clients. Our secret is a
-          meaningful culture that binds us together as a Design Tribe.
-        </p>
+         We design experiences for inspiring clients. Our secret is a meaningful culture that binds us together as a Design Tribe.
+    </p>
   </section>
       <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-     <template v-slot:activator="{ on }">
-    <v-btn
-      v-on="on" @click="addToCart" color="orange" text>
+        v-model="dialog"
+        width="500">
+    <template v-slot:activator="{ on }">
+      <v-btn
+         v-on="on" @click="addToCart" color="orange" text>
         <v-icon size="40">mdi-cart</v-icon>
     </v-btn>
-     </template>
+    </template>
 
       <v-card>
         <v-card-title
@@ -49,16 +47,14 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-
      <div>
-                <v-btn v-if="auth"
-                  @click.prevent="deleteProduct(productId)" class="ma-2" color="orange darken-2" dark>
-          Delete
-          </v-btn>
-
-               <v-btn to="/products" class="ma-2" color="orange darken-2" dark>
-            <v-icon dark left>mdi-arrow-left</v-icon>Back to products
-          </v-btn>
+        <v-btn v-if="auth"
+            @click.prevent="deleteProduct(productId)" class="ma-2" color="orange darken-2" dark>
+            Delete
+        </v-btn>
+        <v-btn to="/products" class="ma-2" color="orange darken-2" dark>
+           <v-icon dark left>mdi-arrow-left</v-icon>Back to products
+        </v-btn>
      </div>
   </div>
 </template>
@@ -132,8 +128,6 @@ export default {
 .produc-price {
   width: 20%;
   height: 80px;
-  /* background-position: center;
-  background-size: cover; */
 }
 
 .product-details {

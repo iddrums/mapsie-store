@@ -1,28 +1,28 @@
 <template>
- <div v-if="$store.state.cartProducts.length > 0" class="word">
+  <div v-if="$store.state.cartProducts.length > 0" class="word">
      <div class="text-center pt-2">
-      <h1>Welcome to our cart page!!!</h1>
+        <h1>Welcome to our cart page!!!</h1>
      </div>
      <div>
-      <v-card>
+       <v-card>
         <v-simple-table>
           <thead>
-            <tr>
-              <th></th>
-              <th>
-                <strong>Product</strong>
-              </th>
-              <th>
-                <strong>Price</strong>
-              </th>
-              <th>
-                <strong>QTY</strong>
-              </th>
-              <th>
-                <strong>Amount</strong>
-              </th>
-              <th></th>
-            </tr>
+              <tr>
+                <th></th>
+                <th>
+                  <strong>Product</strong>
+                </th>
+                <th>
+                  <strong>Price</strong>
+                </th>
+                <th>
+                  <strong>QTY</strong>
+                </th>
+                <th>
+                  <strong>Amount</strong>
+                </th>
+                <th></th>
+              </tr>
           </thead>
         <tbody>
             <tr v-for="product in $store.state.cartProducts" :key="product.id">
@@ -43,28 +43,28 @@
               </td>
               <div class="view">
                 <v-btn
-                  @click="addCart(product)"
-                  style="margin-top: 20px; width: 10px;"
-                  color="#FFD180"
-                >+</v-btn>
+                    @click="addCart(product)"
+                    style="margin-top: 20px; width: 10px;"
+                    color="#FFD180"
+                  >+</v-btn>
                 <v-btn
-                  :disabled="product.quantity === 1"
-                  @click="decreaseQuantity(product)"
-                  style="margin-top: 20px; width: 10px;"
-                  color="#BF360C"
-                >-</v-btn>
+                    :disabled="product.quantity === 1"
+                    @click="decreaseQuantity(product)"
+                    style="margin-top: 20px; width: 10px;"
+                    color="#BF360C"
+                  >-</v-btn>
                 <v-btn
-                  @click="removeFromCart(product)"
-                  style="margin-top: 20px; width: 10px;"
-                  color="#FF3D00"
-                >X</v-btn>
-              </div>
+                    @click="removeFromCart(product)"
+                    style="margin-top: 20px; width: 10px;"
+                    color="#FF3D00"
+                  >X</v-btn>
+               </div>
             </tr>
           </tbody>
         </v-simple-table>
-      </v-card>
+    </v-card>
       <div class="text-center pt-2">
-        <h2>Total: ₦{{ totalPrice }}</h2>
+         <h2>Total: ₦{{ totalPrice }}</h2>
       </div>
     </div>
     <div class="text-center pt-2">
